@@ -9,7 +9,7 @@ const questions = [
  {title:'Hitta den nya styrkan',category:'Spädning',text:'200 mg läkemedel späds till en total slutvolym på 50 ml. Vilken blir lösningens styrka?',unit:'mg/ml',answer:4,hint:'Dela läkemedelsmängden med hela slutvolymen.',solution:'200 ÷ 50 = 4 mg/ml.'},
  {title:'Ställ in flödet',category:'Infusion',text:'250 ml ska ges under 2 timmar. Vilken är infusionshastigheten i ml/h?',unit:'ml/h',answer:125,hint:'Dela volymen med tiden i timmar.',solution:'250 ÷ 2 = 125 ml/h.'},
  {title:'Från minuter till timmar',category:'Infusion',text:'100 ml ska ges under 40 minuter. Vilken är infusionshastigheten i ml/h?',unit:'ml/h',answer:150,hint:'Räkna ml per minut och multiplicera sedan med 60.',solution:'100 ÷ 40 × 60 = 150 ml/h.'},
- {title:'Nyckeln till nästa avdelning',category:'Slututmaning',text:'Dosen är 5 mg/kg för en patient som väger 60 kg. En lösning på 100 mg/ml späds genom att 5 ml lösning blandas med 45 ml spädningsvätska (slutvolym 50 ml). Dosen ska ges under 30 minuter. Vilken är infusionshastigheten i ml/h?',unit:'ml/h',answer:60,hint:'Räkna dos → mängd i spädningen → ny styrka → dosens volym → ml/h.',solution:'5 × 60 = 300 mg. 5 × 100 = 500 mg i 50 ml, alltså 10 mg/ml. 300 ÷ 10 = 30 ml. 30 ÷ 0,5 = 60 ml/h.'}
+ {title:'Dörrens sista kod',category:'Slututmaning',text:'Den ordinerade dosen är 5 mg/kg för en patient som väger 60 kg. Lösningen har styrkan 100 mg/ml. Vilken volym ska ges?',unit:'ml',answer:3,hint:'Räkna först ut dosen i mg med hjälp av vikten. Dela sedan med styrkan.',solution:'5 × 60 = 300 mg. 300 ÷ 100 = 3 ml.'}
 ];
 
 
@@ -26,7 +26,7 @@ function makeQuestion(level, variant=0, room=0) {
  [`${n*100} mg läkemedel späds till en total slutvolym på 100 ml. Vilken blir lösningens styrka?`,n,`${n*100} ÷ 100 = ${n} mg/ml.`],
  [`${n*100} ml ska ges under 2 timmar. Vilken är infusionshastigheten i ml/h?`,n*50,`${n*100} ÷ 2 = ${n*50} ml/h.`],
  [`${n*50} ml ska ges under 40 minuter. Vilken är infusionshastigheten i ml/h?`,n*75,`${n*50} ÷ 40 × 60 = ${n*75} ml/h.`],
- [`Dosen är 5 mg/kg för en patient som väger ${n*10+40} kg. En lösning på 100 mg/ml späds genom att 5 ml lösning blandas med 45 ml spädningsvätska (slutvolym 50 ml). Dosen ska ges under 30 minuter. Vilken är infusionshastigheten i ml/h?`,n*10+40,`Dosen är ${n*50+200} mg. Ny styrka: 500 ÷ 50 = 10 mg/ml. Volym: ${n*5+20} ml. Hastighet: ${n*5+20} ÷ 0,5 = ${n*10+40} ml/h.`]
+ [`Den ordinerade dosen är 5 mg/kg för en patient som väger ${n*10+40} kg. Lösningen har styrkan 100 mg/ml. Vilken volym ska ges?`,(n*10+40)/20,`5 × ${n*10+40} = ${(n*10+40)*5} mg. ${(n*10+40)*5} ÷ 100 = ${(n*10+40)/20} ml.`]
  ];
  const [text,answer,solution]=data[level];
  return {...questions[level],text,answer,solution,...(level===2?{hint:'Volym = dos ÷ styrka. Komma eller punkt fungerar som decimaltecken.'}:{})};

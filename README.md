@@ -2,7 +2,7 @@
 
 Öppna `index.html` i en webbläsare. Ingen installation behövs. Alla filer måste ligga i samma mapp.
 
-Tio fiktiva beräkningsövningar visas direkt. Skriv svaret och tryck Enter eller Kontrollera svar. Vid rätt svar får du 100 XP och nästa uppgift visas automatiskt efter 1,1 sekunder. Vid fel svar tar figuren ett steg tillbaka (till rummets vänstra gräns som längst), och återkopplingen visar rätt svar samt uträkningen. Efter 2,2 sekunder visas en ny uppgift på samma nivå. Avklarade nivåer och XP behålls. Vid varje ny spelomgång väljs en slumpad variant per nivå, och varje fel svar ger en annan variant på samma nivå. Ledtråd finns. Komma och punkt fungerar som decimaltecken.
+Tio steg leder fram till dörren. Skriv svaret och tryck Enter eller Kontrollera svar. Vid rätt svar får studenten 100 XP och går ett steg framåt. Vid fel svar tar figuren ett steg tillbaka (till rummets vänstra gräns som längst), och återkopplingen visar rätt svar samt uträkningen. En ny uppgift på samma nivå visas efter 2,2 sekunder. Därför kan en bana kräva fler än tio försök. Vid varje ny spelomgång väljs en slumpad variant per nivå, och varje fel svar ger en annan variant på samma nivå. Ledtråd finns. Komma och punkt fungerar som decimaltecken.
 
 En diskret musikloop kan startas och stoppas med knappen ”Musik av”. Musiken skapas i webbläsaren och kräver ingen ljudfil.
 
