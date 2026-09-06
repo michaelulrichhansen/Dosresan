@@ -15,7 +15,7 @@ const questions = [
 
 function makeQuestion(level, variant=0, room=0) {
  if(!variant) return {...questions[level]};
- const n=(variant-1)%5+3+room, f=v=>String(v).replace('.',',');
+ const n=(variant-1)%8+3+room, f=v=>String(v).replace('.',',');
  const data=[
  [`Ordinerad dos är ${n*100} mg. Lösningen har styrkan 100 mg/ml. Vilken volym motsvarar dosen?`,n,`${n*100} ÷ 100 = ${n} ml.`],
  [`Ordinerad dos är ${n*50} mg. Varje tablett innehåller 50 mg. Hur många tabletter motsvarar dosen?`,n,`${n*50} ÷ 50 = ${n} tabletter.`],
