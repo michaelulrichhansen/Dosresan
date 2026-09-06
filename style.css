@@ -3,3 +3,4 @@
 
 
 button:disabled{cursor:default;opacity:.75}
+.header-tools{display:flex;align-items:center;gap:10px}.music-toggle{background:#eef3e9;border:1px solid #d1ddd0;border-radius:22px;padding:9px 13px;color:#456b5b;font-size:13px;cursor:pointer}.music-toggle[aria-pressed="true"]{background:#dcecdf;border-color:#8db8a0;color:#1f5d49}@media(max-width:850px){.header-tools{gap:6px}.music-toggle{padding:8px 10px}}

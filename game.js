@@ -1,8 +1,12 @@
 const $ = id => document.getElementById(id);
 let index=0, busy=false, mistakes=0, attempted=false, firstTry=0, variant=0, position=0, current, timer;
 let sessionVariants=[];
+let audioContext=null, musicTimer=null, musicOn=false, musicStep=0;
+const musicNotes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23];
 function randomVariant(){return 1+Math.floor(Math.random()*5);}
 function prepareSession(){sessionVariants=questions.map(()=>randomVariant());}
+function playNote(){if(!musicOn||!audioContext)return;const now=audioContext.currentTime,osc=audioContext.createOscillator(),gain=audioContext.createGain();osc.type='sine';osc.frequency.value=musicNotes[musicStep%musicNotes.length];gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(.018,now+.08);gain.gain.exponentialRampToValueAtTime(.001,now+1.7);osc.connect(gain).connect(audioContext.destination);osc.start(now);osc.stop(now+1.8);musicStep++;}
+function toggleMusic(){if(!audioContext)audioContext=new(window.AudioContext||window.webkitAudioContext)();if(audioContext.state==='suspended')audioContext.resume();musicOn=!musicOn;const b=$('music-toggle');b.setAttribute('aria-pressed',String(musicOn));b.textContent=musicOn?'♫ Musik på':'♫ Musik av';if(musicOn){playNote();musicTimer=setInterval(playNote,900);}else{clearInterval(musicTimer);musicTimer=null;}}
 function parseAnswer(raw){const t=raw.trim();if(!/^\d+(?:[.,]\d+)?$/.test(t))return null;const v=Number(t.replace(',','.'));return Number.isFinite(v)?v:null;}
 function progress(count){$('xp').textContent=count*100;$('room-progress').textContent=`${count} / 10 klara`;$('progress-label').textContent=`${count} av 10 uppgifter`;$('steps').innerHTML=questions.map((q,i)=>`<span class="step ${i<count?'done':i===count?'current':''}" aria-label="Uppgift ${i+1}${i<count?', klar':''}">${i<count?'✓':i+1}</span>`).join('');}
 function move(){$('student').setAttribute('transform',`translate(${140+position*44} 275)`);}
@@ -12,6 +16,7 @@ $('answer-form').addEventListener('submit',event=>{event.preventDefault();if(bus
 if(Math.abs(value-current.answer)<1e-9){if(!attempted)firstTry++;$('feedback').textContent='Rätt! +100 XP';$('feedback').className='success';$('answer').removeAttribute('aria-invalid');$('submit').textContent=index===9?'Dörren öppnas…':'På väg till nästa uppgift…';position=Math.min(10,position+1);move();progress(index+1);timer=setTimeout(()=>{index++;variant=0;attempted=false;if(index===questions.length)finish();else render();},1100);
 }else{attempted=true;mistakes++;position=Math.max(-1,position-1);move();$('feedback').textContent=`Fel svar. Ett steg tillbaka. Rätt svar är ${current.answer} ${current.unit}. ${current.solution}`;$('feedback').className='error';$('submit').textContent='Ny uppgift på samma nivå…';timer=setTimeout(()=>{variant++;render();$('feedback').textContent='Ny uppgift, samma svårighetsnivå. Dina XP är kvar.';},2200);}});
 $('hint').addEventListener('click',()=>{$('hint-text').textContent=current.hint;$('hint-text').hidden=!$('hint-text').hidden;});
+$('music-toggle').addEventListener('click',toggleMusic);
 $('replay').addEventListener('click',()=>{clearTimeout(timer);index=0;mistakes=0;firstTry=0;variant=0;position=0;attempted=false;prepareSession();$('finish').hidden=true;$('challenge').hidden=false;$('lock').textContent='LÅST';$('door').classList.remove('open');$('door-status').textContent='Nästa dörr öppnas efter 10 rätt';render();});
 prepareSession();
 render();
