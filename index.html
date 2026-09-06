@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="sv">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Dosresan – ett spel för att öva läkemedelsberäkning."><title>Dosresan · Version 0.1</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="brand" href="index.html"><span class="cross">✚</span> DOSRESAN <small>V0.1</small></a><span class="xp">✦ <b id="xp">0</b> XP</span></header>
+<main>
+<div class="heading"><div><span class="eyebrow">Ditt första uppdrag</span><h1>Läkemedelsrummet</h1><p>Tio beräkningar. En dörr att öppna.</p></div><span class="badge">BANA 01</span></div>
+<section class="game" aria-label="Spelområde">
+<div class="world">
+<div class="world-label"><span class="dot"></span> TRÄNING PÅGÅR <span id="room-progress">0 / 10 klara</span></div>
+<svg viewBox="0 0 760 450" role="img" aria-label="Ett illustrerat läkemedelsrum med en student, läkemedelsskåp och en låst dörr">
+<defs><pattern id="tiles" width="76" height="42" patternUnits="userSpaceOnUse"><path d="M76 0H0V42" fill="none" stroke="#a8c9c5" stroke-width="1"/></pattern><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#dcece8"/><stop offset="1" stop-color="#c0dcd4"/></linearGradient></defs>
+<path fill="url(#wall)" d="M0 0H760V300H0z"/><path fill="#bed5ce" d="M0 300H760V450H0z"/><path fill="url(#tiles)" d="M0 300H760V450H0z"/><path stroke="#8eb5aa" stroke-width="10" d="M0 300H760"/>
+<rect x="45" y="44" width="183" height="130" rx="8" fill="#87b9b1"/><rect x="53" y="52" width="167" height="114" rx="3" fill="#ecf7ee"/><path d="M136 52V166M53 109H220" stroke="#87b9b1" stroke-width="7"/><path d="M60 151L104 75M150 152L194 76" stroke="white" stroke-width="16" opacity=".5"/>
+<rect x="290" y="54" width="164" height="136" rx="7" fill="#719c95"/><rect x="298" y="62" width="148" height="120" rx="3" fill="#e7f1e9"/><path d="M298 119H446" stroke="#719c95" stroke-width="5"/>
+<g fill="#628a80"><rect x="316" y="81" width="22" height="30" rx="4"/><rect x="353" y="76" width="22" height="35" rx="4"/><rect x="396" y="82" width="27" height="29" rx="4"/><rect x="315" y="140" width="27" height="32" rx="4"/><rect x="366" y="142" width="18" height="30" rx="4"/><rect x="400" y="137" width="26" height="35" rx="4"/></g><g fill="#fff3c6"><path d="M316 89H338V102H316zM353 86H375V101H353zM396 90H423V102H396zM315 149H342V163H315zM400 147H426V161H400z"/></g>
+<rect x="46" y="223" width="416" height="91" rx="5" fill="#8eb6a9"/><path d="M45 222H466" stroke="#f4f9ed" stroke-width="14"/><path d="M182 230V311M321 230V311" stroke="#648f83" stroke-width="3"/><path d="M101 246H130M237 246H266M371 246H400" stroke="#e7f3de" stroke-width="5"/>
+<rect x="71" y="198" width="50" height="18" rx="5" fill="#f9fbef"/><rect x="267" y="198" width="61" height="17" rx="3" fill="#e9ca85"/>
+<rect x="551" y="76" width="148" height="238" rx="6" fill="#71998e"/><g id="door"><rect x="560" y="84" width="130" height="228" rx="3" fill="#305f59"/><rect x="580" y="107" width="90" height="68" rx="4" fill="#8db6a6"/><text x="625" y="144" fill="#f7f6de" text-anchor="middle" font-size="14" font-family="sans-serif">AVDELNING 02</text><circle cx="675" cy="223" r="6" fill="#f1cd77"/><text id="lock" x="623" y="248" text-anchor="middle" fill="#dce9d4" font-size="14" font-family="sans-serif">LÅST</text></g>
+<g id="student" transform="translate(140 275)"><ellipse cx="0" cy="96" rx="34" ry="9" fill="#537d71" opacity=".25"/><path d="M-17 61L-19 88M17 61L19 88" stroke="#294c51" stroke-width="15"/><path d="M-27 93H-13M12 93H28" stroke="#faf6dd" stroke-width="10" stroke-linecap="round"/><rect x="-26" y="9" width="52" height="57" rx="15" fill="#357f86"/><path d="M-24 22L-34 51M24 22L34 51" stroke="#c18d6e" stroke-width="12" stroke-linecap="round"/><circle cy="-12" r="24" fill="#c18d6e"/><path d="M-23-12Q-28-48 6-39Q30-37 24-7L14-21Q-3-12-18-21z" fill="#394443"/><circle cx="-8" cy="-10" r="2" fill="#293f40"/><circle cx="8" cy="-10" r="2" fill="#293f40"/><path d="M-6 0Q0 5 6 0" stroke="#704e42" stroke-width="2" fill="none"/><rect x="7" y="23" width="12" height="16" rx="2" fill="#f5edca"/></g>
+</svg>
+<div class="world-bottom"><span>● Du är här · Läkemedelsrummet</span><span id="door-status">Nästa dörr öppnas efter 10 rätt</span></div>
+</div>
+<div class="challenge" id="challenge"><div class="question-meta"><span id="category">DOS & STYRKA</span><span id="counter">01 / 10</span></div><h2 id="title"></h2><p id="question"></p><form id="answer-form" novalidate><label for="answer">Ditt svar</label><div class="input-wrap"><input id="answer" inputmode="decimal" autocomplete="off" placeholder="Skriv här" aria-describedby="feedback" autofocus><span id="unit"></span></div><button class="primary" id="submit" type="submit">Kontrollera svar <span>↵</span></button></form><p id="feedback" role="status" aria-live="polite"></p><button class="hint" id="hint" type="button">Behöver du en ledtråd?</button><p id="hint-text" hidden></p><p class="calm">Ingen tidspress. Försök så många gånger du vill.</p></div>
+<div class="challenge finish" id="finish" hidden><span class="medal">✦</span><span class="eyebrow">BANA AVKLARAD</span><h2>Snyggt räknat!</h2><p>Du har klarat alla tio uppgifter och öppnat dörren till nästa avdelning.</p><strong>1 000 XP</strong><p id="results"></p><p class="coming">Avdelning 02 kommer i en senare version.</p><button class="primary" id="replay">Spela banan igen ↻</button></div>
+</section>
+<section class="journey" aria-label="Framsteg"><div class="journey-title"><strong>Din väg genom rummet</strong><span id="progress-label">0 av 10 uppgifter</span></div><div id="steps"></div></section>
+<footer><span>DOSRESAN · En uppgift i taget.</span><span>Fiktiva övningsuppgifter · Endast för utbildning</span></footer>
+</main><script src="questions.js"></script><script src="game.js"></script></body></html>
