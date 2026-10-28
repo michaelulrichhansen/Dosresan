@@ -25,7 +25,7 @@ for(const p of particles)rect(p.x,p.y,5,5,'#ffe183');ctx.fillStyle='#bcd3e8';ctx
 function frame(t){const dt=Math.min((t-last)/1000||0,.025);last=t;update(dt);draw();requestAnimationFrame(frame)}
 document.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','Space','ArrowUp'].includes(e.code)&&e.target.tagName!=='BUTTON'){e.preventDefault();if(e.code==='ArrowLeft')keys.left=true;if(e.code==='ArrowRight')keys.right=true;if((e.code==='Space'||e.code==='ArrowUp')&&!e.repeat)jump()}});document.addEventListener('keyup',e=>{if(e.code==='ArrowLeft')keys.left=false;if(e.code==='ArrowRight')keys.right=false});window.addEventListener('blur',()=>{keys.left=keys.right=false});
 for(const name of ['left','right']){$(name).addEventListener('pointerdown',e=>{e.preventDefault();$(name).setPointerCapture(e.pointerId);keys[name]=true});for(const event of ['pointerup','pointercancel','lostpointercapture'])$(name).addEventListener(event,()=>keys[name]=false)}$('jump').addEventListener('pointerdown',e=>{e.preventDefault();jump()});$('jump').addEventListener('click',e=>{if(e.detail===0)jump()});$('reset').addEventListener('click',()=>{reset();canvas.focus()});reset();requestAnimationFrame(frame);
-</script><script src="upgrade.js"></script><script src="journey.js"></script><style>
+</script><script src="upgrade.js"></script><script src="journey.js"></script><script src="arcade.js"></script><style>
 body{background:radial-gradient(ellipse at top,#1c3951,#0a1426 75%)}main{max-width:1100px}header{border-bottom:1px solid #39516b}canvas{border:1px solid #42637c;box-shadow:0 18px 65px #0006;border-radius:12px;image-rendering:pixelated}.question{border-radius:0 12px 12px 0;background:linear-gradient(110deg,#203b52,#182940);box-shadow:0 8px 25px #0002}button{box-shadow:0 3px 0 #08172a}button:active{transform:translateY(2px);box-shadow:none}.audio-bar{display:flex;gap:8px;align-items:center;margin:16px 0}.audio-bar button{font-size:14px;padding:8px 12px}.audio-bar span{margin-left:auto;font-size:14px;color:#9cb9cc}details{padding:18px;border:1px solid #355069;border-radius:12px;color:#adcad7;margin-top:22px}summary{cursor:pointer;color:#85e5d3}details h3{color:#ecf7ff;font-size:16px}details p{font-size:14px}@media(max-width:600px){.audio-bar{flex-wrap:wrap}.audio-bar span{width:100%;margin:5px 0}}
 </style><style>
 /* Keep the complete exercise readable while the game fits the available height. */
@@ -51,3 +51,4 @@ html{scroll-padding-top:12px}
  window.addEventListener('resize',fitGame);window.visualViewport?.addEventListener('resize',fitGame);fitGame();
 })();
 </script></html>
+

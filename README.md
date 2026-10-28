@@ -14,3 +14,5 @@ Efter rätt svar öppnas vägen: gå åt höger genom dörren för nästa uppgif
 För GitHub Pages: ladda upp index.html, upgrade.js och journey.js till samma mapp. Denna version är separat från det tidigare korridorspelet.
 
 Uppdaterad grafik: personal i bakgrunden, olika utrustning på varje avdelning, dörrskyltar, hoppstreck, energipuls vid rätt svar och markeringar mot öppen dörr. Figuren behåller sin turkosa uniform. Svarsalternativen använder nu närliggande positiva tal i stället för extrema felvärden.
+
+Den ljusare arkadversionen använder även arcade.js, som måste ligga bredvid index.html. Den har blockplattformar, målflaggor, rörlig bakgrund och bonusmärken som blir tillgängliga först efter rätt svar. Märkena är frivilliga och påverkar inte kunskapsprogressionen. Alla fem filer i ZIP-mappen ska laddas upp tillsammans.
