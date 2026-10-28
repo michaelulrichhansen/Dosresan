@@ -16,3 +16,5 @@ För GitHub Pages: ladda upp index.html, upgrade.js och journey.js till samma ma
 Uppdaterad grafik: personal i bakgrunden, olika utrustning på varje avdelning, dörrskyltar, hoppstreck, energipuls vid rätt svar och markeringar mot öppen dörr. Figuren behåller sin turkosa uniform. Svarsalternativen använder nu närliggande positiva tal i stället för extrema felvärden.
 
 Den ljusare arkadversionen använder även arcade.js, som måste ligga bredvid index.html. Den har blockplattformar, målflaggor, rörlig bakgrund och bonusmärken som blir tillgängliga först efter rätt svar. Märkena är frivilliga och påverkar inte kunskapsprogressionen. Alla fem filer i ZIP-mappen ska laddas upp tillsammans.
+
+Mjuk grafik och inbyggd frågepanel: smooth.js krävs också. Frågan och återkopplingen ingår i samma ram som spelbanan. Frågans höjd anpassas efter texten utan att täcka plattformarna. Ladda upp samtliga sex filer från denna ZIP (index.html, upgrade.js, journey.js, arcade.js, smooth.js, README.md).

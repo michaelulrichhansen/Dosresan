@@ -36,19 +36,6 @@ html{scroll-padding-top:12px}
 #game{margin-inline:auto;width:var(--game-width,100%);max-width:100%;height:auto}
 .audio-bar{margin:8px 0}#feedback{min-height:48px;padding:8px 0}
 @media(max-height:700px){main{padding-top:8px}header h1{margin:8px 0}.question{padding:10px 14px}.audio-bar span{display:none}}
-</style><script>
-(()=>{
- const panel=document.querySelector('.question'),game=document.getElementById('game');
- function fitGame(){
-   const main=document.querySelector('main'),header=document.querySelector('header'),audio=document.querySelector('.audio-bar'),controls=document.querySelector('.controls');
-   const viewport=window.visualViewport?window.visualViewport.height:window.innerHeight;
-   const available=viewport-panel.getBoundingClientRect().height-header.getBoundingClientRect().height-audio.getBoundingClientRect().height-controls.getBoundingClientRect().height-110;
-   // Preserve usable platform labels even when the screen needs vertical scrolling.
-   const width=Math.min(main.clientWidth-24,Math.max(360,available*1000/450));
-   game.style.setProperty('--game-width',Math.max(240,width)+'px');
- }
- if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(fitGame);observer.observe(panel);observer.observe(document.querySelector('.controls'));}
- window.addEventListener('resize',fitGame);window.visualViewport?.addEventListener('resize',fitGame);fitGame();
-})();
-</script></html>
+</style><script src="smooth.js"></script></html>
+
 
