@@ -1,20 +1,16 @@
-# Dosresan – Version 0.1
+# Dosresan – plattformsversion
 
-Öppna `index.html` i en webbläsare. Ingen installation behövs. Alla filer måste ligga i samma mapp.
+Packa upp och öppna index.html. upgrade.js och journey.js måste ligga i samma mapp.
+Styr med piltangenter och hoppa med mellanslag eller skärmknapparna. Svaret registreras direkt när du landar ovanpå en svarsplattform. Att landa på golvet räknas inte som ett svar.
 
-Tio steg leder fram till dörren. Skriv svaret och tryck Enter eller Kontrollera svar. Vid rätt svar får studenten 100 XP och går ett steg framåt. Vid fel svar tar figuren ett steg tillbaka (till rummets vänstra gräns som längst), och återkopplingen visar rätt svar samt uträkningen. En ny uppgift på samma nivå visas efter 2,2 sekunder. Därför kan en bana kräva fler än tio försök. Vid varje ny spelomgång väljs en slumpad variant per nivå, och varje fel svar ger en annan variant på samma nivå. Ledtråd finns. Komma och punkt fungerar som decimaltecken.
+Rätt svar placeras med balanserad slumpning: varje grupp om sex nya frågor har rätt svar två gånger till vänster, två i mitten och två till höger. Även ersättningsfrågor efter fel svar räknas som nya frågor.
 
-En diskret musikloop kan startas och stoppas med knappen ”Musik av”. Musiken skapas i webbläsaren och kräver ingen ljudfil.
+Fyra avdelningar med sex moment vardera. Kunskapskartan i spelet visar de 24 momenten. Uppgifterna är fiktiva och avser matematisk träning; jämför täckningen med kursens lärandemål före undervisning.
 
-Efter tio rätt öppnas dörren och en resultatskärm visas. Nästa avdelning är en visuell upplåsning; fler spelbara banor ingår inte i version 0.1. Spela igen startar om. Framstegen finns endast under pågående spel och återställs vid omladdning.
+Ljudeffekter aktiveras efter första tangenttryckningen eller klicket. Bakgrundsmusik startas separat med Starta musik. Ljud på/av styr både effekter och musik. Ljuden genereras i webbläsaren.
 
-## Publicera på den befintliga GitHub Pages-sidan
+Efter rätt svar öppnas vägen: gå åt höger genom dörren för nästa uppgift. Kameran följer figuren längs korridoren. Efter fel svar får du en ny uppgift på samma nivå. Felalternativen speglar bland annat felaktig enhetsomvandling, tid och dosfördelning.
 
-Lägg mappen `dosresan` i webbplatsens publicerade katalog och länka till `dosresan/index.html`. Inga externa bibliotek, tjänster eller internetanslutning krävs för själva spelet.
+För GitHub Pages: ladda upp index.html, upgrade.js och journey.js till samma mapp. Denna version är separat från det tidigare korridorspelet.
 
-## Ändra uppgifterna
-
-Alla uppgifter, facit, enheter, ledtrådar och förklaringar finns i `questions.js`. `game.js` innehåller spellogiken och `style.css` utseendet. Gränssnittet i denna version är anpassat för tio uppgifter.
-
-Uppgifterna är konstruerade för matematisk träning med fiktiva läkemedel. De beskriver inte klinisk administrering eller behandlingsrekommendationer. Lärare bör granska innehållet före användning i undervisning.
-
+Uppdaterad grafik: personal i bakgrunden, olika utrustning på varje avdelning, dörrskyltar, hoppstreck, energipuls vid rätt svar och markeringar mot öppen dörr. Figuren behåller sin turkosa uniform. Svarsalternativen använder nu närliggande positiva tal i stället för extrema felvärden.
